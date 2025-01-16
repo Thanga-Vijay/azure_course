@@ -34,7 +34,11 @@ steps:
 
 - task: AzureRmWebAppDeployment@4
   inputs:
-    ConnectionType: 'PublishProfile'
-    PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.war'
-    PublishProfilePassword: '$(Password)'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go (Azure-course)(313177e3-fcb7-46dc-b5d2-90cc875263ae)'
+    appType: 'webAppLinux'
+    WebAppName: 'javaprod'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'azuser'
+    SlotName: 'production'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
